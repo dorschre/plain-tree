@@ -10,6 +10,8 @@ class Node {
   data: any;
   children: Node[] = [];
   id: string;
+  value: string;
+  label: string;
   parent: NodeOrNull;
 
   constructor(
@@ -18,6 +20,11 @@ class Node {
   ) {
     this.id = id !== undefined ? id : generateId();
     this.parent = parent || null;
+    
+    this.value = id;
+    if ("label" in data){
+    this.label = data.label;
+    } else {this.label = id}
     this.data = data;
     this.children = [];
   }
