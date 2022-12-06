@@ -1,5 +1,5 @@
 {
-  "name": "@lukeaus/plain-tree",
+  "name": "@dorschre/plain-tree",
   "description": "A plain tree with a bunch of tree tools",
   "version": "0.0.0",
   "source": "src/index.ts",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukeaus/plain-tree.git"
+    "url": "git+https://github.com/dorschre/plain-tree.git"
   },
   "keywords": [
     "tree",
@@ -44,16 +44,6 @@
     "create",
     "array"
   ],
-  "author": {
-    "name": "Luke Scott",
-    "email": "luke.m.scott@gmail.com",
-    "url": "https://lukescott.co"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lukeaus/plain-tree/issues"
-  },
-  "homepage": "https://github.com/lukeaus/plain-tree#readme",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
