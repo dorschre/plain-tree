@@ -13,10 +13,34 @@ export const nodeToJsonFormatter = (node: Node): SerializedNode => {
     id,
     parentId: null
   };
+
   parent && (obj.parentId = parent.id);
   obj.children = (node.children as Node[]).map(
     (child: Node): SerializedNode => nodeToJsonFormatter(child)
   );
+  return obj;
+};
+
+export const nodeToObjectFormatter = (node: Node): SerializedNode => {
+  const { parent, data, children, id } = node;
+  const obj: SerializedNode = {
+    data,
+    children,
+    id,
+    parentId: null
+  };
+
+  parent && (obj.parentId = parent.id);
+  if(children.length === 0){
+    delete obj.children
+  } else {
+    obj.children = (node.children as Node[]).map(
+      (child: Node): SerializedNode => nodeToJsonFormatter(child)
+    );
+  }
+
+
+
   return obj;
 };
 

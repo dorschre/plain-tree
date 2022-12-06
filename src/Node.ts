@@ -1,6 +1,7 @@
 import { generateId } from './utils';
 import {
   nodeToJsonFormatter,
+  nodeToObjectFormatter,
   widthsByHeight,
   flattenByHeight
 } from './utilsNodeTree';
@@ -71,7 +72,18 @@ class Node {
 
   toJson(): string {
     const objectToSerialize = nodeToJsonFormatter(this);
+
     return JSON.stringify(objectToSerialize);
+  }
+
+  toObject(): any {
+    const res = [];
+    if(this.children.length !== 0 ){
+      for (let id = 0; id < this.children.length; id++){
+        res.push(nodeToObjectFormatter(this.children[id]))
+      }
+    }
+    return res;
   }
 
   depth(): number {

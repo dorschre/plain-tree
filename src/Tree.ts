@@ -234,6 +234,10 @@ class Tree {
   toJson(): string {
     return this.root ? this.root.toJson() : '';
   }
+
+  toObject(): any {
+    return this.root ? this.root.toObject() : [];
+  }
 }
 
 export default Tree;
