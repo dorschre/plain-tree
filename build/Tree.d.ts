@@ -1,0 +1,30 @@
+import { NodeOrNull } from './types';
+type TraverseReturn = void | boolean | Array<NodeOrNull>;
+declare class Tree {
+    root: NodeOrNull;
+    constructor(root?: NodeOrNull);
+    private _traverse;
+    private _traverseBreathFirst;
+    private _traverseDepthFirst;
+    traverseBreathFirst(fn: Function): TraverseReturn;
+    traverseDepthFirst(fn: Function): TraverseReturn;
+    someBreathFirst(fn: Function): boolean;
+    someDepthFirst(fn: Function): boolean;
+    everyBreathFirst(fn: Function): boolean;
+    everyDepthFirst(fn: Function): boolean;
+    findOneBreathFirst(fn: Function): NodeOrNull;
+    findOneDepthFirst(fn: Function): NodeOrNull;
+    findAllBreathFirst(fn: Function): Array<NodeOrNull>;
+    findAllDepthFirst(fn: Function): Array<NodeOrNull>;
+    flatMap(fn?: Function | null): Array<any>;
+    flattenData(): Array<any>;
+    flattenByHeight(fn?: Function | null): any[][];
+    flattenDataByHeight(): any[][];
+    widthsByHeight(): Array<number>;
+    nodesAtHeight(height: number): Array<NodeOrNull>;
+    countNodes(): number;
+    maxWidth(): number;
+    height(): number;
+    toJson(): string;
+}
+export default Tree;
