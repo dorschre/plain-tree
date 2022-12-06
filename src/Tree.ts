@@ -12,8 +12,9 @@ type TraverseOptions = {
 };
 
 class Tree {
-  constructor(public root: NodeOrNull = null) {
+  constructor(public root: NodeOrNull = null, public isChanged: Boolean = true) {
     this.root = root;
+    this.isChanged = isChanged;
   }
 
   private _traverse(

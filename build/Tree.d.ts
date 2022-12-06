@@ -2,7 +2,8 @@ import { NodeOrNull } from './types';
 type TraverseReturn = void | boolean | Array<NodeOrNull>;
 declare class Tree {
     root: NodeOrNull;
-    constructor(root?: NodeOrNull);
+    isChanged: Boolean;
+    constructor(root?: NodeOrNull, isChanged?: Boolean);
     private _traverse;
     private _traverseBreathFirst;
     private _traverseDepthFirst;
