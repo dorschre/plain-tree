@@ -20,6 +20,7 @@ declare class Node {
     isLeaf(): boolean;
     hasChildren(): boolean;
     toJson(): string;
+    toObject(): any;
     depth(): number;
     widthsByHeight(): Array<number>;
     height(): number;

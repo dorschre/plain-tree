@@ -26,5 +26,6 @@ declare class Tree {
     maxWidth(): number;
     height(): number;
     toJson(): string;
+    toObject(): any;
 }
 export default Tree;
