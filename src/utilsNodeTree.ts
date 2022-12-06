@@ -1,17 +1,20 @@
 /*
  * Common Node and Tree utilities
  */
-import { NodeOrNull, SerializedNode } from './types';
+import { NodeOrNull, SerializedLeaf, SerializedNode } from './types';
 import { hasChildren } from './utils';
 import Node from './Node';
 
 export const nodeToJsonFormatter = (node: Node): SerializedNode => {
-  const { parent, data, children, id } = node;
+  const { parent, data, children, id, value, label } = node;
+
   const obj: SerializedNode = {
     data,
     children,
     id,
-    parentId: null
+    parentId: null,
+    value,
+    label
   };
 
   parent && (obj.parentId = parent.id);
@@ -21,21 +24,20 @@ export const nodeToJsonFormatter = (node: Node): SerializedNode => {
   return obj;
 };
 
-export const nodeToObjectFormatter = (node: Node): SerializedNode => {
-  const { parent, data, children, id } = node;
-  const obj: SerializedNode = {
+export const nodeToObjectFormatter = (node: Node): any => {
+  const { parent, data, children, id, value, label } = node;
+  let obj: any = {
     data,
-    children,
     id,
-    parentId: null
+    parentId: null,
+    value,
+    label
   };
 
   parent && (obj.parentId = parent.id);
-  if(children.length === 0){
-    delete obj.children
-  } else {
+  if(children.length !== 0){
     obj.children = (node.children as Node[]).map(
-      (child: Node): SerializedNode => nodeToJsonFormatter(child)
+      (child: Node): any => nodeToJsonFormatter(child)
     );
   }
 
